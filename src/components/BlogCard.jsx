@@ -10,16 +10,32 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import Box from "@mui/material/Box";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import ChatBubbleTwoToneIcon from "@mui/icons-material/ChatBubbleTwoTone";
+import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../contexts/AuthContext";
+import { useContext } from "react";
 
 const BlogCards = ({ item }) => {
+  const navigate = useNavigate();
+  const { currentUser } = useContext(AuthContext);
   console.log(item);
-  const { context, imageUrl, date, email, title } = item;
+  const { id, context, imageUrl, date, email, title } = item;
   return (
-    <Card sx={{ width: 300, marginTop: "2rem" }}>
-      <CardMedia component="img" height="170" image={imageUrl} alt="" />
+    <Card
+      sx={{ width: 300, marginTop: "2rem" }}
+      onClick={() => navigate(`details/${id}`, { state: item })}
+    >
+      <CardMedia
+        component="img"
+        height="170"
+        image={imageUrl}
+        alt=""
+        onClick={() => {
+          navigate("details");
+          !currentUser && alert("please log in to see details");
+        }}
+      />
       <CardContent>
         <CardHeader title={title} subheader={date} />
-
         <Typography
           variant="body2"
           color="text.secondary"

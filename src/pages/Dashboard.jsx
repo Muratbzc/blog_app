@@ -26,8 +26,9 @@ const Dashboard = () => {
           <img src={loading} alt="" width={300} style={{ marginTop: "5rem" }} />
         )}
 
-        {blogList?.map((item, index) => {
-          return <BlogCards key={index} item={item} />;
+        {blogList?.map((item) => {
+          const { id } = item;
+          return <BlogCards key={id} item={item} />;
         })}
       </Box>
     </>

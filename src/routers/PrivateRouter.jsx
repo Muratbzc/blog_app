@@ -4,7 +4,10 @@ import { AuthContext } from "../contexts/AuthContext";
 
 const PrivateRouter = () => {
   const { currentUser } = useContext(AuthContext);
-  return <div>{currentUser ? <Outlet /> : <Navigate to="/login" />}</div>;
+  console.log(currentUser);
+  return (
+    <div>{currentUser ? <Outlet /> : <Navigate to="/login" replace />}</div>
+  );
 };
 
 export default PrivateRouter;
