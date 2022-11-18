@@ -1,4 +1,12 @@
-import { getDatabase, ref, set, push, onValue } from "firebase/database";
+import {
+  getDatabase,
+  ref,
+  set,
+  push,
+  onValue,
+  remove,
+  update,
+} from "firebase/database";
 import { useEffect, useState } from "react";
 import app from "./firebase";
 
@@ -36,4 +44,19 @@ export const useFetch = () => {
     });
   }, []);
   return { isLoading, blogList };
+};
+
+//! DELETE BLOG
+
+export const DeleteBlog = (id) => {
+  const db = getDatabase(app);
+  remove(ref(db, "blog/" + id));
+};
+
+//! UPDATE BLOG
+export const EditBlog = (blogInfo) => {
+  const db = getDatabase(app);
+  const updates = {};
+  updates["blog/" + blogInfo.id] = blogInfo;
+  return update(ref(db), updates);
 };

@@ -7,28 +7,22 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import img from "../assets/blog3.png";
-import { useState } from "react";
 import { AuthContext } from "../contexts/AuthContext";
 import { useContext } from "react";
 import { AddNewBlog } from "../helpers/functions";
 import { useNavigate } from "react-router-dom";
+import { BlogContext } from "../contexts/BlogContext";
 
 const theme = createTheme();
-const initialValues = {
-  title: "",
-  imageUrl: "",
-  context: "",
-};
+
 const NewBlog = () => {
   const navigate = useNavigate();
   const { currentUser } = useContext(AuthContext);
-  const [blogInfo, setBlogInfo] = useState(initialValues);
+  const { blogInfo, setBlogInfo } = useContext(BlogContext);
   console.log(blogInfo);
-
   const handleSubmit = (e) => {
     e.preventDefault();
     AddNewBlog(blogInfo, currentUser);
-    setBlogInfo(initialValues);
     navigate("/");
   };
 

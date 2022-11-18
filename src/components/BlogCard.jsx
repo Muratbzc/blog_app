@@ -40,8 +40,11 @@ const BlogCards = ({ item }) => {
           variant="body2"
           color="text.secondary"
           sx={{
-            height: "2rem",
+            height: "2.7rem",
             overflow: "hidden",
+            display: "-webkit-box",
+            WebkitLineClamp: 2,
+            WebkitBoxOrient: "vertical",
           }}
         >
           {context}

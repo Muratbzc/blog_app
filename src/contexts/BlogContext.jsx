@@ -1,17 +1,15 @@
-import { useContext } from "react";
+import { createContext, useState } from "react";
 
-export const BlogContext = useContext();
+export const BlogContext = createContext();
 
 const BlogProvider = ({ children }) => {
-  const [info, setInfo] = useState({
+  const [blogInfo, setBlogInfo] = useState({
     title: "",
-    ımageUrl: "",
+    imageUrl: "",
     context: "",
-    date: "",
-    email: "",
   });
   return (
-    <BlogContext.Provider value={{ info, setInfo }}>
+    <BlogContext.Provider value={{ blogInfo, setBlogInfo }}>
       {children}
     </BlogContext.Provider>
   );

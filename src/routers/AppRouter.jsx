@@ -23,7 +23,7 @@ const AppRouter = () => {
         </Route>
 
         <Route path="newblog" element={<NewBlog />} />
-        <Route path="updateblog" element={<UpdateBlog />} />
+        <Route path="details/:id/updateblog/:id" element={<UpdateBlog />} />
       </Routes>
     </BrowserRouter>
   );

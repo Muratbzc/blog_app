@@ -59,7 +59,6 @@ const Navbar = () => {
             variant="h6"
             noWrap
             component="a"
-            href=""
             onClick={() => navigate("/")}
             sx={{
               mr: 2,
@@ -69,6 +68,7 @@ const Navbar = () => {
               letterSpacing: ".3rem",
               color: "inherit",
               textDecoration: "none",
+              cursor: "pointer",
             }}
           >
             LOGO
@@ -78,7 +78,6 @@ const Navbar = () => {
             noWrap
             component="a"
             onClick={() => navigate("/")}
-            href=""
             sx={{
               mr: 2,
               display: { xs: "flex", md: "none" },
@@ -88,6 +87,7 @@ const Navbar = () => {
               letterSpacing: ".3rem",
               color: "inherit",
               textDecoration: "none",
+              cursor: "pointer",
             }}
           >
             LOGO
