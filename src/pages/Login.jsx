@@ -5,18 +5,24 @@ import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
-import Link from "@mui/material/Link";
-import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { login, singInGoogle } from "../helpers/firebase";
+import bgimage from "../assets/bg1.jpg";
+import Paper from "@mui/material/Paper";
 
-const theme = createTheme();
+const styles = {
+  paperContainer: {
+    backgroundImage: `url(${bgimage})`,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    padding: "2rem",
+  },
+};
 
 const Login = () => {
   const navigate = useNavigate();
@@ -28,18 +34,20 @@ const Login = () => {
   };
 
   return (
-    <ThemeProvider theme={theme}>
+    <Paper style={styles.paperContainer}>
       <Container component="main" maxWidth="xs">
         <CssBaseline />
         <Box
           sx={{
-            marginTop: 8,
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
+            backgroundColor: "white",
+            padding: "2rem",
+            borderRadius: "2rem",
           }}
         >
-          <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
+          <Avatar sx={{ m: 1, bgcolor: "primary.main" }}>
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
@@ -87,35 +95,25 @@ const Login = () => {
               type="submit"
               fullWidth
               variant="contained"
-              sx={{ mt: 3, mb: 2 }}
+              color="secondary"
+              sx={{ mt: 3, mb: 2, color: "white" }}
             >
               Sign In
             </Button>
             <Button
               type="submit"
               fullWidth
-              variant="contained"
+              variant="outlined"
+              color="secondary"
               sx={{ mt: 3, mb: 2 }}
               onClick={() => singInGoogle(navigate)}
             >
               WITH Google
             </Button>
-            <Grid container>
-              <Grid item xs>
-                <Link href="#" variant="body2">
-                  Forgot password?
-                </Link>
-              </Grid>
-              <Grid item>
-                <Link href="#" variant="body2">
-                  {"Don't have an account? Sign Up"}
-                </Link>
-              </Grid>
-            </Grid>
           </Box>
         </Box>
       </Container>
-    </ThemeProvider>
+    </Paper>
   );
 };
 

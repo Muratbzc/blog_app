@@ -1,6 +1,5 @@
 import * as React from "react";
 import Card from "@mui/material/Card";
-import CardHeader from "@mui/material/CardHeader";
 import CardMedia from "@mui/material/CardMedia";
 import CardContent from "@mui/material/CardContent";
 import CardActions from "@mui/material/CardActions";
@@ -34,27 +33,55 @@ const BlogCards = ({ item }) => {
           !currentUser && alert("please log in to see details");
         }}
       />
-      <CardContent>
-        <CardHeader title={title} subheader={date} />
-        <Typography
-          variant="body2"
-          color="text.secondary"
-          sx={{
-            height: "2.7rem",
-            overflow: "hidden",
-            display: "-webkit-box",
-            WebkitLineClamp: 2,
-            WebkitBoxOrient: "vertical",
-          }}
-        >
-          {context}
-        </Typography>
+      <CardContent sx={{ padding: "0" }}>
+        <Box sx={{ bgcolor: "#EFEEFE", padding: "1rem" }}>
+          <Typography
+            variant="h6"
+            color="secondary"
+            sx={{
+              height: "4.7rem",
+              overflow: "hidden",
+              display: "-webkit-box",
+              WebkitLineClamp: 3,
+              WebkitBoxOrient: "vertical",
+              fontWeight: "bold",
+              lineHeight: "1.5rem",
+            }}
+          >
+            {title}
+          </Typography>
+          <Typography
+            variant="body2"
+            color="text.secondary"
+            sx={{
+              height: "2rem",
+              fontWeight: "bold",
+              lineHeight: "1.5rem",
+            }}
+          >
+            {date}
+          </Typography>
+          <Typography
+            variant="body2"
+            color="text.secondary"
+            sx={{
+              height: "2.7rem",
+              overflow: "hidden",
+              display: "-webkit-box",
+              WebkitLineClamp: 2,
+              WebkitBoxOrient: "vertical",
+            }}
+          >
+            {context}
+          </Typography>
+        </Box>
+
         <Box
           sx={{
             display: "flex",
             alignItems: "center",
             gap: "1rem",
-            marginTop: "3px",
+            paddingLeft: "1rem",
           }}
         >
           <AccountCircleIcon />

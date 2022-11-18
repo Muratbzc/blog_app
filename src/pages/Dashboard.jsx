@@ -11,7 +11,12 @@ const Dashboard = () => {
 
   return (
     <>
-      <Typography variant="h3" align="center" sx={{ marginTop: "2rem" }}>
+      <Typography
+        variant="h3"
+        align="center"
+        color="secondary"
+        sx={{ marginTop: "2rem" }}
+      >
         ──── DASHBOARD ────
       </Typography>
       <Box
@@ -20,6 +25,7 @@ const Dashboard = () => {
           flexWrap: "wrap",
           gap: "2rem",
           justifyContent: "center",
+          padding: "1rem",
         }}
       >
         {isLoading && (

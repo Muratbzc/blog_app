@@ -14,10 +14,17 @@ import { useNavigate } from "react-router-dom";
 import { logouth } from "../helpers/firebase";
 import { AuthContext } from "../contexts/AuthContext";
 import { useContext } from "react";
+import { BlogContext } from "../contexts/BlogContext";
 
+const initialValues = {
+  title: "",
+  imageUrl: "",
+  context: "",
+};
 const Navbar = () => {
   const navigate = useNavigate();
   const { currentUser } = useContext(AuthContext);
+  const { blogInfo, setBlogInfo } = useContext(BlogContext);
 
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -42,6 +49,7 @@ const Navbar = () => {
     setAnchorElUser(null);
   };
   const handleNewBlog = () => {
+    setBlogInfo(initialValues);
     navigate("newblog");
     setAnchorElUser(null);
   };
@@ -52,7 +60,7 @@ const Navbar = () => {
   };
 
   return (
-    <AppBar position="static">
+    <AppBar position="static" color="secondary">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography
@@ -101,7 +109,13 @@ const Navbar = () => {
           >
             <Button
               onClick={() => navigate("/")}
-              sx={{ my: 2, color: "white", display: "block" }}
+              sx={{
+                my: 2,
+                color: "#F1BF10",
+                display: "block",
+                fontSize: "1.5rem",
+                fontWeight: "bold",
+              }}
             >
               {` ──── <M&Bzc/ > BLOG ────`}
             </Button>

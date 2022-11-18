@@ -3,19 +3,25 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Checkbox from "@mui/material/Checkbox";
 import Link from "@mui/material/Link";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useNavigate } from "react-router-dom";
 import { register, singInGoogle } from "../helpers/firebase";
+import bgimage from "../assets/bg5.jpg";
+import Paper from "@mui/material/Paper";
 
-const theme = createTheme();
+const styles = {
+  paperContainer: {
+    backgroundImage: `url(${bgimage})`,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    padding: "2rem",
+  },
+};
 
 const Register = () => {
   const navigate = useNavigate();
@@ -32,18 +38,20 @@ const Register = () => {
   };
 
   return (
-    <ThemeProvider theme={theme}>
+    <Paper style={styles.paperContainer}>
       <Container component="main" maxWidth="xs">
         <CssBaseline />
         <Box
           sx={{
-            marginTop: 8,
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
+            backgroundColor: "white",
+            padding: "2rem",
+            borderRadius: "2rem",
           }}
         >
-          <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
+          <Avatar sx={{ m: 1, bgcolor: "primary.main" }}>
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
@@ -114,27 +122,21 @@ const Register = () => {
                   }
                 />
               </Grid>
-              <Grid item xs={12}>
-                <FormControlLabel
-                  control={
-                    <Checkbox value="allowExtraEmails" color="primary" />
-                  }
-                  label="I want to receive inspiration, marketing promotions and updates via email."
-                />
-              </Grid>
             </Grid>
             <Button
               type="submit"
               fullWidth
               variant="contained"
-              sx={{ mt: 3, mb: 2 }}
+              color="secondary"
+              sx={{ mt: 3, mb: 2, color: "white" }}
             >
               Sign Up
             </Button>
             <Button
               type="submit"
               fullWidth
-              variant="contained"
+              variant="outlined"
+              color="secondary"
               sx={{ mt: 3, mb: 2 }}
               onClick={() => singInGoogle(navigate)}
             >
@@ -142,7 +144,7 @@ const Register = () => {
             </Button>
             <Grid container justifyContent="flex-end">
               <Grid item>
-                <Link href="#" variant="body2">
+                <Link href="login" variant="body2">
                   Already have an account? Sign in
                 </Link>
               </Grid>
@@ -150,7 +152,7 @@ const Register = () => {
           </Box>
         </Box>
       </Container>
-    </ThemeProvider>
+    </Paper>
   );
 };
 export default Register;

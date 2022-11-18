@@ -1,6 +1,5 @@
 import * as React from "react";
 import Card from "@mui/material/Card";
-import CardHeader from "@mui/material/CardHeader";
 import CardMedia from "@mui/material/CardMedia";
 import CardContent from "@mui/material/CardContent";
 import CardActions from "@mui/material/CardActions";
@@ -52,7 +51,7 @@ const Details = () => {
         padding: "2rem",
       }}
     >
-      <Typography variant="h4" align="center">
+      <Typography variant="h4" align="center" color="secondary">
         ──── DETAILS ────
       </Typography>
       <Card
@@ -62,17 +61,36 @@ const Details = () => {
         }}
       >
         <CardMedia component="img" height="300" image={imageUrl} alt="" />
-        <CardContent>
-          <CardHeader title={title} subheader={date} />
-          <Typography variant="body2" color="text.secondary">
-            {context}
-          </Typography>
+        <CardContent sx={{ padding: "0" }}>
+          <Box sx={{ bgcolor: "#EFEEFE", padding: "1rem" }}>
+            <Typography
+              variant="h6"
+              color="secondary"
+              mb={2}
+              sx={{ fontWeight: "bold" }}
+            >
+              {title}
+            </Typography>
+            <Typography
+              variant="body2"
+              color="text.secondary"
+              mb={2}
+              sx={{ fontWeight: "bold" }}
+            >
+              {date}
+            </Typography>
+            <Typography variant="body2" color="text.secondary">
+              {context}
+            </Typography>
+          </Box>
+
           <Box
             sx={{
               display: "flex",
               alignItems: "center",
               gap: "1rem",
               marginTop: "1rem",
+              paddingLeft: "1rem",
             }}
           >
             <AccountCircleIcon />
@@ -98,6 +116,7 @@ const Details = () => {
           <Button
             variant="outlined"
             size="small"
+            color="warning"
             startIcon={<ReplyIcon />}
             onClick={() => navigate(-1)}
           >
@@ -115,10 +134,20 @@ const Details = () => {
             justifyContent: "space-evenly",
           }}
         >
-          <Button variant="contained" onClick={handleUpdateBlog}>
+          <Button
+            variant="contained"
+            color="secondary"
+            onClick={handleUpdateBlog}
+            sx={{ color: "white" }}
+          >
             Update
           </Button>
-          <Button variant="contained" onClick={handleDeleteBlog}>
+          <Button
+            variant="contained"
+            color="secondary"
+            sx={{ color: "white" }}
+            onClick={handleDeleteBlog}
+          >
             Delete
           </Button>
         </Box>
