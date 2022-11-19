@@ -15,6 +15,7 @@ import { logouth } from "../helpers/firebase";
 import { AuthContext } from "../contexts/AuthContext";
 import { useContext } from "react";
 import { BlogContext } from "../contexts/BlogContext";
+import logo from "../assets/logo.png";
 
 const initialValues = {
   title: "",
@@ -24,7 +25,7 @@ const initialValues = {
 const Navbar = () => {
   const navigate = useNavigate();
   const { currentUser } = useContext(AuthContext);
-  const { blogInfo, setBlogInfo } = useContext(BlogContext);
+  const { setBlogInfo } = useContext(BlogContext);
 
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -63,43 +64,27 @@ const Navbar = () => {
     <AppBar position="static" color="secondary">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <Typography
-            variant="h6"
-            noWrap
-            component="a"
+          <Box
             onClick={() => navigate("/")}
             sx={{
               mr: 2,
               display: { xs: "none", md: "flex" },
-              fontFamily: "monospace",
-              fontWeight: 700,
-              letterSpacing: ".3rem",
-              color: "inherit",
-              textDecoration: "none",
               cursor: "pointer",
             }}
           >
-            LOGO
-          </Typography>
-          <Typography
-            variant="h5"
-            noWrap
-            component="a"
+            <img src={logo} style={{ height: "5rem" }} alt="" />
+          </Box>
+          <Box
             onClick={() => navigate("/")}
             sx={{
               mr: 2,
               display: { xs: "flex", md: "none" },
               flexGrow: 1,
-              fontFamily: "monospace",
-              fontWeight: 700,
-              letterSpacing: ".3rem",
-              color: "inherit",
-              textDecoration: "none",
               cursor: "pointer",
             }}
           >
-            LOGO
-          </Typography>
+            <img src={logo} style={{ height: "5rem" }} alt="" />
+          </Box>
           <Box
             sx={{
               justifyContent: "center",
