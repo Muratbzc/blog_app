@@ -15,7 +15,7 @@ import { logouth } from "../helpers/firebase";
 import { AuthContext } from "../contexts/AuthContext";
 import { useContext } from "react";
 import { BlogContext } from "../contexts/BlogContext";
-import logo from "../assets/logo.png";
+import logo from "../assets/logo1.jpg";
 
 const initialValues = {
   title: "",
@@ -102,7 +102,7 @@ const Navbar = () => {
                 fontWeight: "bold",
               }}
             >
-              {` ──── <M&Bzc/ > BLOG ────`}
+              {` ──── <all kinds of information /> ────`}
             </Button>
           </Box>
 

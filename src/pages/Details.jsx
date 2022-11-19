@@ -118,7 +118,7 @@ const Details = () => {
             size="small"
             color="warning"
             startIcon={<ReplyIcon />}
-            onClick={() => navigate(-1)}
+            onClick={() => navigate("/")}
           >
             Go Back
           </Button>
