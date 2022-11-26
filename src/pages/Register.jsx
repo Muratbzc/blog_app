@@ -144,7 +144,11 @@ const Register = () => {
             </Button>
             <Grid container justifyContent="flex-end">
               <Grid item>
-                <Link onClick={() => navigate("/login")} variant="body2">
+                <Link
+                  onClick={() => navigate("/login")}
+                  variant="body2"
+                  sx={{ cursor: "pointer" }}
+                >
                   Already have an account? Sign in
                 </Link>
               </Grid>
