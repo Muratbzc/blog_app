@@ -2,11 +2,11 @@
 
 ## Description
 
-Our goal in this project is to create build a Movi App using ReactJS and Firebase for Authentication and Database
+Our goal in this project is to create build a Blog App using ReactJS and Firebase 
 
 ## Outcome
 
-![Project 036](./movie.gif)
+![Project 039](./blog.gif)
 
 ## Used Tech and Libraries
 - React JS
